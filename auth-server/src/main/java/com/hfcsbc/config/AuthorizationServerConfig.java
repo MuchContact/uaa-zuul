@@ -40,7 +40,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private AuthenticationManager authenticationManager;
     @Autowired
     private RedisConnectionFactory connectionFactory;
-
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Bean
     public RedisTokenStore tokenStore() {
@@ -60,7 +61,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
+                .checkTokenAccess("isAuthenticated()")
+                .allowFormAuthenticationForClients();
     }
 
     @Override
