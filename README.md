@@ -87,7 +87,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
+                .checkTokenAccess("isAuthenticated()")
+                .allowFormAuthenticationForClients(); //org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer#clientCredentialsTokenEndpointFilter
     }
 
     @Override
@@ -186,7 +187,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-    
+
 
 
 }

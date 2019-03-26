@@ -3,8 +3,11 @@ spring:
     active: ${SPRING_PROFILES_ACTIVE:dev}
   application:
     name: order-service
-  redis:
-    host: 192.168.1.140
+  cloud:
+    config:
+      enabled: false
+#  redis:
+#    host: 192.168.1.140
 #  cloud:
 #    config:
 #      uri: http://${config.host:192.168.1.140}:${config.port:8888}
@@ -24,7 +27,7 @@ security:
   oauth2:
     resource:
       id: order-service
-      user-info-uri: http://localhost:8080/uaa/user
+      user-info-uri: http://localhost:8080/auth-server/user
       prefer-token-info: false
 
 logging.level.org.springframework.security: DEBUG
