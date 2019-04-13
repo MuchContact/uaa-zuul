@@ -6,12 +6,14 @@ spring:
   cloud:
     config:
       enabled: false
+  sleuth:
+    sampler:
+      percentage: 1
 #  redis:
 #    host: 192.168.1.140
 #  cloud:
 #    config:
 #      uri: http://${config.host:192.168.1.140}:${config.port:8888}
-
 server:
   port: 8083
 
