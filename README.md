@@ -23,6 +23,11 @@ Grant Type：
 - `password`:
 - `refrsh_token`:
 
+### 0.使用
+```
+curl -X POST http://localhost:9999/oauth/token -H 'Content-Type: application/x-www-form-urlencoded' -H 'cache-control: no-cache' -d 'grant_type=password&username=admin&password=admin&client_id=android&client_secret=android'
+```
+
 ### 1.基础环境
 
 使用`Postgres`作为账户存储，`Redis`作为`Token`存储，使用`docker-compose`在服务器上启动`Postgres`和`Redis`。
